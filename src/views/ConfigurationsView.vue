@@ -1,1 +1,0 @@
-<template><div><h2>Liste des Configurations</h2></div></template>
