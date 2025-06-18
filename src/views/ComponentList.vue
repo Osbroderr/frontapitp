@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import api from '../services/api';;
 
 export default {
   name: 'ComponentList',
@@ -64,7 +64,7 @@ export default {
   methods: {
     async fetchComponents() {
       try {
-        const response = await axios.get('/api/v1/components');
+        const response = await api.get('/components');
         this.components = response.data;
       } catch (error) {
         console.error('Erreur lors du chargement des composants:', error);
@@ -73,7 +73,7 @@ export default {
     async deleteComponent(id) {
       if (confirm('Confirmer la suppression de ce composant ?')) {
         try {
-          await axios.delete(`/api/v1/components/${id}`);
+          await api.delete(`/components/${id}`);
           this.components = this.components.filter(c => c._id !== id);
         } catch (error) {
           alert('Erreur lors de la suppression');

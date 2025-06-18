@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import api from '../services/api';;
 
 export default {
   name: 'ConfigDetail',
@@ -28,7 +28,7 @@ export default {
   },
   async mounted() {
     try {
-      const res = await axios.get(`/api/v1/configs/${this.$route.params.id}`);
+      const res = await api.get(`/configs/${this.$route.params.id}`);
       this.config = res.data;
     } catch (error) {
       console.error("Erreur chargement configuration :", error);

@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import api from '../services/api';;
 
 export default {
   name: 'ComponentForm',
@@ -60,7 +60,7 @@ export default {
           ...this.form,
           specs: JSON.parse(this.form.specs)
         };
-        await axios.post('/api/v1/components', payload);
+        await api.post('/components', payload);
         this.$router.push('/components');
       } catch (err) {
         alert("Erreur lors de l'ajout du composant : " + err);

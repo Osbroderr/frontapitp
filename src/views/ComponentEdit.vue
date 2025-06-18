@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import api from '../services/api';;
 
 export default {
   name: 'UserList',
@@ -51,7 +51,7 @@ export default {
   methods: {
     async fetchUsers() {
       try {
-        const res = await axios.get('/api/v1/users');
+        const res = await api.get('/users');
         this.users = res.data;
       } catch (err) {
         alert('Erreur de chargement des utilisateurs');

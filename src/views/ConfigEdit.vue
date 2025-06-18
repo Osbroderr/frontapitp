@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import api from '../services/api';;
 
 export default {
   name: 'ConfigEdit',
@@ -38,7 +38,7 @@ export default {
   },
   async mounted() {
     try {
-      const res = await axios.get(`/api/v1/configs/${this.$route.params.id}`);
+      const res = await api.get(`/configs/${this.$route.params.id}`);
       this.form = {
         name: res.data.name,
         components: JSON.stringify(res.data.components, null, 2),
@@ -56,7 +56,7 @@ export default {
           components: JSON.parse(this.form.components),
           totalPrice: this.form.totalPrice
         };
-        await axios.put(`/api/v1/configs/${this.$route.params.id}`, payload);
+        await api.put(`/configs/${this.$route.params.id}`, payload);
         this.$router.push('/configs');
       } catch (err) {
         alert('Erreur mise à jour de la configuration');

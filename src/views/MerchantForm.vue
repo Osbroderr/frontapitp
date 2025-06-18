@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import api from '../services/api';;
 
 export default {
   name: 'MerchantForm',
@@ -41,7 +41,7 @@ export default {
   methods: {
     async addMerchant() {
       try {
-        await axios.post('/api/v1/merchants', this.form);
+        await api.post('/merchants', this.form);
         this.$router.push('/merchants');
       } catch (err) {
         alert('Erreur lors de l’ajout');

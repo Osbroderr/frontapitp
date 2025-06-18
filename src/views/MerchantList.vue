@@ -53,7 +53,7 @@ export default {
   methods: {
     async fetchMerchants() {
       try {
-        const res = await axios.get('/merchants');
+        const res = await api.get('/merchants');
         this.merchants = res.data;
       } catch (err) {
         console.error('Erreur récupération partenaires :', err);
@@ -61,7 +61,7 @@ export default {
     },
     async deleteMerchant(id) {
       if (confirm('Voulez-vous vraiment supprimer ce partenaire ?')) {
-        await axios.delete(`/merchants/${id}`);
+        await api.delete(`/merchants/${id}`);
         this.merchants = this.merchants.filter(m => m._id !== id);
       }
     }

@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import api from '../services/api';;
 
 export default {
   name: 'UserDetail',
@@ -31,7 +31,7 @@ export default {
   },
   async mounted() {
     try {
-      const res = await axios.get(`/api/v1/users/${this.$route.params.id}`);
+      const res = await api.get(`/users/${this.$route.params.id}`);
       this.user = res.data;
     } catch (error) {
       console.error("Erreur chargement utilisateur :", error);

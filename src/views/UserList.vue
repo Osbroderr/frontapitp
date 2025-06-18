@@ -54,7 +54,7 @@ export default {
   methods: {
     async fetchUsers() {
       try {
-        const res = await axios.get('/users');
+        const res = await api.get('/users');
         this.users = res.data;
       } catch (err) {
         console.error('Erreur lors de la récupération des utilisateurs', err);

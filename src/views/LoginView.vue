@@ -14,23 +14,6 @@ export default {
   name: 'LoginView',
   components: {
     LoginForm
-  },
-  data() {
-    return {
-      error: ''
-    };
-  },
-  methods: {
-    async login({ email, password }) {
-      try {
-        const res = await api.post('/auth/login', { email, password });
-        localStorage.setItem('token', res.data.token);
-        axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
-        this.$router.push('/');
-      } catch (err) {
-        this.error = 'Email ou mot de passe incorrect.';
-      }
-    }
   }
 };
 </script>

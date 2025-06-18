@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import api from '../services/api';;
 
 export default {
   name: 'MerchantEdit',
@@ -40,7 +40,7 @@ export default {
   },
   async mounted() {
     try {
-      const res = await axios.get(`/api/v1/merchants/${this.$route.params.id}`);
+      const res = await api.get(`/merchants/${this.$route.params.id}`);
       this.form = res.data;
     } catch (err) {
       console.error('Erreur chargement partenaire :', err);
@@ -49,7 +49,7 @@ export default {
   methods: {
     async updateMerchant() {
       try {
-        await axios.put(`/api/v1/merchants/${this.$route.params.id}`, this.form);
+        await api.put(`/merchants/${this.$route.params.id}`, this.form);
         this.$router.push('/merchants');
       } catch (err) {
         alert('Erreur mise à jour du partenaire');
