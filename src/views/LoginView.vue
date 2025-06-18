@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import api from '../services/api';
 import LoginForm from '../components/LoginForm.vue';
 
 export default {
@@ -23,7 +23,7 @@ export default {
   methods: {
     async login({ email, password }) {
       try {
-        const res = await axios.post('/api/v1/auth/login', { email, password });
+        const res = await api.post('/auth/login', { email, password });
         localStorage.setItem('token', res.data.token);
         axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
         this.$router.push('/');
