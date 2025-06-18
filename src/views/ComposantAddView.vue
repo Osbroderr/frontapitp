@@ -1,0 +1,1 @@
+<template><div><h2>Ajouter un Composant</h2></div></template>

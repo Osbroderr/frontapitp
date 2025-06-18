@@ -1,0 +1,1 @@
+<template><div><h2>Détails de l'Utilisateur</h2></div></template>

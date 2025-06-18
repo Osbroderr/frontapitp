@@ -1,0 +1,1 @@
+<template><div><h2>Liste des Partenaires Marchands</h2></div></template>

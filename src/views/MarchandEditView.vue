@@ -1,0 +1,1 @@
+<template><div><h2>Modifier un Partenaire</h2></div></template>
