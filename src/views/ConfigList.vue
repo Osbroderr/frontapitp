@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import axios from '../services/api';
+import api from '../services/api';
 
 export default {
   name: 'ConfigList',
@@ -51,7 +51,7 @@ export default {
   methods: {
     async fetchConfigs() {
       try {
-        const res = await api.get('/configs'); // endpoint fictif
+        const res = await api.get('/configurations'); // endpoint fictif
         this.configs = res.data;
       } catch (err) {
         console.error('Erreur récupération configs:', err);
@@ -62,7 +62,7 @@ export default {
     },
     async deleteConfig(id) {
       if (confirm('Supprimer cette configuration ?')) {
-        await api.delete(`/configs/${id}`);
+        await api.delete(`/configurations/${id}`);
         this.configs = this.configs.filter(c => c._id !== id);
       }
     },

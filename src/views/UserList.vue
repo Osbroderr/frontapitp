@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import axios from '../services/api';
+import api from '../services/api';
 
 export default {
   name: 'UserList',

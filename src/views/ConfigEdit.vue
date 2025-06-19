@@ -38,7 +38,7 @@ export default {
   },
   async mounted() {
     try {
-      const res = await api.get(`/configs/${this.$route.params.id}`);
+      const res = await api.get(`/configurations/${this.$route.params.id}`);
       this.form = {
         name: res.data.name,
         components: JSON.stringify(res.data.components, null, 2),
@@ -56,8 +56,8 @@ export default {
           components: JSON.parse(this.form.components),
           totalPrice: this.form.totalPrice
         };
-        await api.put(`/configs/${this.$route.params.id}`, payload);
-        this.$router.push('/configs');
+        await api.put(`/configurations/${this.$route.params.id}`, payload);
+        this.$router.push('/configurations');
       } catch (err) {
         alert('Erreur mise à jour de la configuration');
       }

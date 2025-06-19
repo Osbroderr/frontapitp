@@ -28,7 +28,7 @@ export default {
   },
   async mounted() {
     try {
-      const res = await api.get(`/configs/${this.$route.params.id}`);
+      const res = await api.get(`/configurations/${this.$route.params.id}`);
       this.config = res.data;
     } catch (error) {
       console.error("Erreur chargement configuration :", error);
